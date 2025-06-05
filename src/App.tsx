@@ -2,32 +2,58 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { MarkdownView } from './md'
+
+const testMDString = `# 标题一
+## 标题二
+**加粗**
+*斜体*
+&lt;u&gt;下划线&lt;/u&gt;
+~~删除线~~
+
+
+----
+分割线
+
+
+1. 第一项
+* 元素1
+* 元素2
+2. 第二项
+* 元素1
+* 元素2
+&gt;   最外层
+&gt; &gt;   一层嵌套
+&gt; &gt; &gt;   二层嵌套
+
+&gt; 区块中使用列表
+&gt; 1. 第一项
+&gt; 2. 第二项
+&gt; + 第一项
+&gt; + 第二项
+
+
+用 1 作为网址变量 [baidu][1] ,然后在文档的结尾为变量赋值（网址）
+
+[1]: https://baidu.com
+
+1:点 \( O \) 是直线 \( AB \) 上一点，\(\angle 1 = 65^\circ\)，则 \(\angle 2\) 的度数。
+
+2:如图，已知点 \\( O \\) 是直线 \\( AB \\) 上一点，\\( \\angle 1 = 65^\\circ \\)，则 \\( \\angle 2 \\) 的度数
+
+3:如图，已知点$ O $ 是直线 $ AB$ 上一点，$ angle 1 = 65^circ $，则 $angle 2$的度数
+
+666666`
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <MarkdownView value={testMDString} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
